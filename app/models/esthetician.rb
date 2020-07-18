@@ -13,4 +13,7 @@ class Esthetician < ApplicationRecord
     end
   end
 
+  has_many :facials
+  has_many :clients, through: :facials
+
 end
