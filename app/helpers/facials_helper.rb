@@ -1,0 +1,2 @@
+module FacialsHelper
+end

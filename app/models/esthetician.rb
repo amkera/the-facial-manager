@@ -9,8 +9,8 @@ class Esthetician < ApplicationRecord
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |esthetician|
       #fetch user if already in db, or create one
       esthetician.email = provider_data.info.email
-      esthetician.password = Devise.friendly_token(0, 20)
-    end 
+      esthetician.password = Devise.friendly_token[0, 20]
+    end
   end
 
 end
