@@ -33,9 +33,6 @@ class ClientsController < ApplicationController
 
 
 
-
-  
-
   private
 
   def find_client
