@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
+  before_action :find_client!, only: [:show, :edit, :update]
+
   def show
-    find_client
   end
   #<ActionController::Parameters {"controller"=>"clients", "action"=>"show", "id"=>"5"} permitted: false>
 
@@ -14,18 +15,22 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.new(client_params)
-    @client.save
-    redirect_to client_path(@client)
+    if @client.save
+      redirect_to client_path(@client)
+    else
+      render :new
+    end
   end
 
   def edit
-    find_client
   end
 
   def update
-    find_client
-    @client.update(client_params)
-    redirect_to client_path(@client)
+    if @client.update(client_params)
+      redirect_to client_path(@client)
+    else
+      render :edit
+    end 
   end
 
   def destroy
