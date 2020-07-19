@@ -1,4 +1,7 @@
 <h1>View all clients:</h1>
 <% @clients.each do |client| %>
-	<p><%= client.name %></p>
+	<p><%= link_to client.name.capitalize, client_path(client)%></p>
+		<p>Number of Appointments: <%= client.facials.count %>
+
+			</p>
 <% end %>
