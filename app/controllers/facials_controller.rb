@@ -13,9 +13,14 @@ class FacialsController < ApplicationController
   end
 
   def create
-    @facial = Facial.new
+    @facial = Facial.new(facial_params)
     @facial.save
     redirect_to facial_path(@facial)
+  end
+
+  private
+  def facial_params
+    params.require(:facial).permit(:facial_date, :facial_time, :acne, :cystic_acne, :deep_pitted_scars, :dryness, :dullness, :flakiness, :flat_dark_scars, :redness, :wrinkles, :other, :client_id, :esthetician_id)
   end
 
 

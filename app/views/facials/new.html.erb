@@ -1,8 +1,28 @@
-<h1>Create New Facial</h1>
+<h1>Create New Facial Booking</h1>
 
 <%= form_for(@facial) do |f| %>
-  <label>Date: </label> <br>
+  <label>Date:</label> <br>
   <%= f.date_field :facial_date %><br>
+  <br />
+
+  <label>Time:</label> <br>
+  <%= f.time_field :facial_time %><br>
+
+  <h3>Concerns:</h3><br />
+
+  <label>Acne:</label><%= f.check_box :acne %><br>
+  <label>Cystic Acne:</label><%= f.check_box :cystic_acne %><br>
+  <label>Deep Pitted Scars:</label><%= f.check_box :deep_pitted_scars %><br>
+  <label>Dryness:</label><%= f.check_box :dryness %><br>
+  <label>Dullness:</label><%= f.check_box :dullness %><br>
+  <label>Flakiness:</label><%= f.check_box :flakiness %><br>
+  <label>Flat Dark Scars:</label><%= f.check_box :flat_dark_scars %><br>
+  <label>Redness:</label><%= f.check_box :redness %><br>
+  <label>Wrinkles:</label><%= f.check_box :wrinkles %><br><br />
+  <label>Other:</label><%= f.text_area :other %><br>
+
+  <label>Client ID:</label><%= f.text_field :client_id %><br>
+  <label>Esthetician ID:</label><%= f.text_field :esthetician_id %><br>
 
   <%= f.submit %>
 
