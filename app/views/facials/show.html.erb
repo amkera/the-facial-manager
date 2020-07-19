@@ -69,7 +69,7 @@
 
   <p>
     <%if @facial.client_id%>
-      <p>Name: <%=@facial.client.name%>  </p>
+      <p>Name: <%=@facial.client.first_name.capitalize%> <%=@facial.client.last_name.capitalize%> </p>
         <ul>
           <li>Email:<%=@facial.client.email%>  </li>
           <li>Name:<%=@facial.client.phone_number%></li>
