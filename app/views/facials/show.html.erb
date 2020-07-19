@@ -1,1 +1,86 @@
 <h1>Facials Show Page</h1>
+
+  <label>Date: </label><%=@facial.facial_date.strftime("%A, %b %d, %Y")%><br>
+  <label>Time: </label><%=@facial.facial_time.strftime("%I:%M %p")%><br>
+
+  <h3>Client's Skincare Concerns</h3>
+
+  <p>
+    <%if @facial.acne == true%>
+      <%="Acne"%>
+    <%end%>
+  </p>
+
+  <p>
+    <%if @facial.cystic_acne == true%>
+      <%="Cystic Acne"%>
+    <%end%>
+  </p>
+
+  <p>
+    <%if @facial.deep_pitted_scars == true%>
+      <%="Deep Pitted Scars"%>
+    <%end%>
+  </p>
+
+  <p>
+    <%if @facial.dryness == true%>
+      <%="Dryness"%>
+    <%end%>
+  </p>
+
+  <p>
+    <%if @facial.dullness == true%>
+      <%="Dullness"%>
+    <%end%>
+  </p>
+
+  <p>
+    <%if @facial.flakiness == true%>
+      <%="Flakiness"%>
+    <%end%>
+  </p>
+
+  <p>
+    <%if @facial.flat_dark_scars == true%>
+      <%="Flat Dark Scars"%>
+    <%end%>
+  </p>
+
+  <p>
+    <%if @facial.redness == true%>
+      <%="Redness"%>
+    <%end%>
+  </p>
+
+  <p>
+    <%if @facial.wrinkles == true%>
+      <%="Wrinkles"%>
+    <%end%>
+  </p>
+
+  <p>
+    <%if @facial.other%>
+      <p>Other Comments: <%=@facial.other%>  </p>
+    <%end%>
+  </p>
+
+  <h4> Client Information </h4>
+
+  <p>
+    <%if @facial.client_id%>
+      <p>Name: <%=@facial.client.name%>  </p>
+        <ul>
+          <li>Email:<%=@facial.client.email%>  </li>
+          <li>Name:<%=@facial.client.phone_number%></li>
+        </ul>
+    <%end%>
+  </p>
+
+  <h4> Esthetician Information</h4>
+
+  <p>
+    <%if @facial.esthetician_id%>
+      <p>Email: <%=@facial.esthetician.email%>  </p>
+    <%end%>
+  </p>
