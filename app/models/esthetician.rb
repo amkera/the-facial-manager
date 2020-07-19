@@ -1,4 +1,6 @@
 class Esthetician < ApplicationRecord
+  has_many :facials
+  has_many :clients, through: :facials
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,7 +15,6 @@ class Esthetician < ApplicationRecord
     end
   end
 
-  has_many :facials
-  has_many :clients, through: :facials
+
 
 end
