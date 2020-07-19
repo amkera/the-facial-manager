@@ -1,4 +1,5 @@
 class FacialsController < ApplicationController
+
   def show
     @facial = Facial.find(params[:id])
   end
@@ -7,35 +8,16 @@ class FacialsController < ApplicationController
     @facials = Facial.all
   end
 
-
   def new
     @facial = Facial.new
   end
 
   def create
-    @facial = Facial.new(facial_params)
+    @facial = Facial.new
     @facial.save
     redirect_to facial_path(@facial)
   end
 
-  def edit
-    @facial = Facial.find(params[:id])
-  end
 
-  def update
-    @facial = Facial.find(params[:id])
-    @facial.update(facial_params)
-    redirect_to facial_path(@facial)
-  end
-
-  def destroy
-  end
-
-  private
-
-
-  def facial_params
-    params.require(:facial).permit(:facial_date, :facial_time, :acne, :cystic_acne, :deep_pitted_scars, :dryness, :dullness, :flakiness, :flat_dark_scars, :redness, :wrinkles, :other, :client_id, :esthetician_id)
-  end
 
 end
