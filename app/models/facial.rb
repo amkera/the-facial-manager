@@ -4,10 +4,13 @@ class Facial < ApplicationRecord
 
   validates :facial_date, presence: true
   validates :facial_time, presence: true
+  validate :facial_date_cannot_be_in_the_past
 
-  validates :facial_date, numericality: {
-      greater_than_or_equal_to: Date.today
-    }
+  def facial_date_cannot_be_in_the_past
+    errors.add(:facial_date, "can't be in the past") if
+      !facial_date.blank? and facial_date < Date.today
+  end
+
 
   validates :client_id, presence: true
   validates :esthetician_id, presence: true
