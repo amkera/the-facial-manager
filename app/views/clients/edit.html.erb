@@ -1,5 +1,20 @@
 <h3>Edit Client Information</h3>
 
+<% if @client.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@client.errors.count, "error") %>
+      prohibited this post from being updated:
+    </h2>
+
+    <ul>
+    <% @client.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(@client) do |f| %>
   <label>First Name: </label> <br>
   <%= f.text_field :first_name %><br>
