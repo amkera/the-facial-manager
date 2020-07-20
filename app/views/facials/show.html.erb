@@ -67,20 +67,13 @@
 
   <h4> Client Information </h4>
 
-  <p>
-    <%if @facial.client_id%>
-      <p>Name: <%=@facial.client.first_name.capitalize%> <%=@facial.client.last_name.capitalize%> </p>
+  <p>Client Name: <%=link_to @facial.client.full_name, client_path(@facial.client) if @facial.client %></p>
         <ul>
           <li>Email:<%=@facial.client.email%>  </li>
           <li>Name:<%=@facial.client.phone_number%></li>
         </ul>
-    <%end%>
-  </p>
+
 
   <h4> Esthetician Information</h4>
-
-  <p>
-    <%if @facial.esthetician_id%>
-      <p>Email: <%=@facial.esthetician.email%>  </p>
-    <%end%>
+      <p>Email: <%=link_to @facial.esthetician.email, esthetician_path(@facial.esthetician) if @facial.esthetician %>  </p>
   </p>

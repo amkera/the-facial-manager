@@ -11,7 +11,11 @@ class Client < ApplicationRecord
   validates :phone_number, presence: true, length: {is: 10}
 
   def full_name
-    self.first_name + " " + self.last_name
+    self.first_name.capitalize + " " + self.last_name.capitalize
   end
+
+
+
+
 
 end
