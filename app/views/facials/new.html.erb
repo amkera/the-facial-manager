@@ -36,8 +36,8 @@
   <label>Wrinkles:</label><%= f.check_box :wrinkles %><br><br />
   <label>Other:</label><%= f.text_area :other %><br>
 
-  <label>Client ID:</label><%= f.collection_select :client_id, Client.all, :id, :full_name %><br>
-  <label>Esthetician ID:</label><%= f.collection_select :esthetician_id, Esthetician.all, :id, :email %><br>
+  <label>Client Name: </label><%= f.collection_select :client_id, Client.all, :id, :full_name %><br>
+  <label>Esthetician E-mail: </label><%= f.collection_select :esthetician_id, Esthetician.all, :id, :email %><br>
 
   <%= f.submit %>
 
