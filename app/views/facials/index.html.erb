@@ -9,5 +9,9 @@
 
   <p>Esthetician: <%= link_to facial.esthetician.email, esthetician_path(facial.esthetician_id) %></p>
 
+  <div class="facial">
+    <%= link_to "Delete Appointment", facial, method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
+
 
 <%end%>
