@@ -34,6 +34,8 @@ class ClientsController < ApplicationController
   end
 
   def destroy
+    Client.find(params[:id]).destroy
+    redirect_to clients_url
   end
 
 

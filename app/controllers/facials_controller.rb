@@ -32,6 +32,11 @@ class FacialsController < ApplicationController
     end
   end
 
+  def destroy
+    Facial.find(params[:id]).destroy
+    redirect_to facials_url
+  end
+
 
 
 

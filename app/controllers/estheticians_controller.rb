@@ -30,10 +30,12 @@ class EstheticiansController < ApplicationController
       redirect_to esthetician_path(@esthetician)
     else
       render :edit
-    end 
+    end
   end
 
   def destroy
+    Esthetician.find(params[:id]).destroy
+    redirect_to estheticians_url
   end
 
   private
