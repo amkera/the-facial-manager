@@ -35,6 +35,7 @@ class ClientsController < ApplicationController
 
   def destroy
     Client.find(params[:id]).destroy
+    flash[:notice] = "This client has been removed."
     redirect_to clients_url
   end
 

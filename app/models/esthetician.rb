@@ -15,6 +15,11 @@ class Esthetician < ApplicationRecord
     end
   end
 
+  def facial_count
+    self.facials.count
+  end
+  
+
 
 
 end

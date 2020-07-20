@@ -35,6 +35,7 @@ class EstheticiansController < ApplicationController
 
   def destroy
     Esthetician.find(params[:id]).destroy
+    flash[:notice] = "This esthetician user has been removed."
     redirect_to estheticians_url
   end
 

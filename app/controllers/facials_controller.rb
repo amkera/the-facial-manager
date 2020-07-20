@@ -34,6 +34,7 @@ class FacialsController < ApplicationController
 
   def destroy
     Facial.find(params[:id]).destroy
+    flash[:notice] = "This facial appointment has been removed."
     redirect_to facials_url
   end
 
