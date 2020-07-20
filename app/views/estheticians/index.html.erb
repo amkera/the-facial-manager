@@ -3,4 +3,7 @@
 
   <%@estheticians.each do |esthetician|%>
     <p><%=esthetician.email%></p>
+    <div class="esthetician">
+      <%= link_to "Delete Esthetician", esthetician, method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
   <%end%>

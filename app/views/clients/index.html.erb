@@ -1,7 +1,8 @@
 <h1>View all clients:</h1>
 <% @clients.each do |client| %>
 	<p><%= link_to client.first_name.capitalize, client_path(client)%></p>
-		<p>Number of Appointments: <%= client.facials.count %>
-
-			</p>
+	<p>Number of Appointments: <%= client.facials.count %></p>
+	<div class="client">
+    <%= link_to "Delete Client", client, method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
 <% end %>
