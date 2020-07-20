@@ -14,11 +14,11 @@ class Facial < ApplicationRecord
   validates :client_id, presence: true
   validates :esthetician_id, presence: true
 
-  def client_name=(full_name)
+  def client_full_name=(full_name)
     self.client = Client.find_or_create_by(full_name: full_name)
   end
 
-  def client_name
+  def client_full_name
     self.client ? self.client.full_name : nil
   end
 
