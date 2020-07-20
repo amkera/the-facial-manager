@@ -1,11 +1,12 @@
 class EstheticiansController < ApplicationController
 
+  before_action :find_esthetician, only: [:show, :edit, :update]
+
   def index
     @estheticians = Esthetician.all
   end
 
   def show
-    find_esthetician
   end
 
   def new
@@ -14,18 +15,22 @@ class EstheticiansController < ApplicationController
 
   def create
     @esthetician = Esthetician.new(esthetician_params)
-    @esthetician.save
-    redirect_to esthetician_path(@esthetician)
+    if @esthetician.save
+      redirect_to esthetician_path(@esthetician)
+    else
+      render  :new
+    end
   end
 
   def edit
-    find_esthetician
   end
 
   def update
-    find_esthetician
-    @esthetician.update(esthetician_params)
-    redirect_to esthetician_path(@esthetician)
+    if @esthetician.update(esthetician_params)
+      redirect_to esthetician_path(@esthetician)
+    else
+      render :edit
+    end 
   end
 
   def destroy
