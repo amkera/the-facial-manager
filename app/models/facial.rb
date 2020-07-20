@@ -8,6 +8,5 @@ class Facial < ApplicationRecord
   validates :client_id, presence: true
   validates :esthetician_id, presence: true
 
-  
 
 end
