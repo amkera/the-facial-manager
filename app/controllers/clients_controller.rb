@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :find_client!, only: [:show, :edit, :update]
+  before_action :find_client, only: [:show, :edit, :update]
 
   def show
   end
@@ -30,7 +30,7 @@ class ClientsController < ApplicationController
       redirect_to client_path(@client)
     else
       render :edit
-    end 
+    end
   end
 
   def destroy
