@@ -5,6 +5,10 @@ class Facial < ApplicationRecord
   validates :facial_date, presence: true
   validates :facial_time, presence: true
 
+  validates :facial_date, numericality: {
+      greater_than_or_equal_to: Date.today
+    }
+
   validates :client_id, presence: true
   validates :esthetician_id, presence: true
 
