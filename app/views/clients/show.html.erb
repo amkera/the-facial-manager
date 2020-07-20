@@ -1,6 +1,12 @@
 <h1><%= @client.full_name%></h1>
+<!--show all client's appointments-->
 
+
+
+
+<h3><%= pluralize(@client.facials.count, 'Facial Appointment') %></h3>
 <ul>
-  <li><%= @client.email %></li>
-  <li><%=@client.phone_number%></li>
+  <% @client.facials.each do |f| %>
+    <li><%= link_to f.facial_date, facial_path(f) %></li>
+  <% end %>
 </ul>
