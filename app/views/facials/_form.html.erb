@@ -1,0 +1,39 @@
+<% if @facial.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@facial.errors.count, "error") %>
+      prohibited this post from being saved:
+    </h2>
+
+    <ul>
+    <% @facial.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <label>Date:</label> <br>
+  <%= f.date_field :facial_date %><br>
+  <br />
+
+  <label>Time:</label> <br>
+  <%= f.time_field :facial_time %><br>
+
+  <h3>Concerns:</h3><br />
+
+  <label>Acne:</label><%= f.check_box :acne %><br>
+  <label>Cystic Acne:</label><%= f.check_box :cystic_acne %><br>
+  <label>Deep Pitted Scars:</label><%= f.check_box :deep_pitted_scars %><br>
+  <label>Dryness:</label><%= f.check_box :dryness %><br>
+  <label>Dullness:</label><%= f.check_box :dullness %><br>
+  <label>Flakiness:</label><%= f.check_box :flakiness %><br>
+  <label>Flat Dark Scars:</label><%= f.check_box :flat_dark_scars %><br>
+  <label>Redness:</label><%= f.check_box :redness %><br>
+  <label>Wrinkles:</label><%= f.check_box :wrinkles %><br><br />
+  <label>Other:</label><%= f.text_area :other %><br>
+
+  <label>Client Name: </label><%= f.collection_select :client_id, Client.all, :id, :full_name %><br>
+  <label>Esthetician E-mail: </label><%= f.collection_select :esthetician_id, Esthetician.all, :id, :email %><br>
+
+  <%= f.submit %>
