@@ -13,6 +13,7 @@
   </div>
 <% end %>
 
+<%= form_for(@facial) do |f| %>
   <label>Date:</label> <br>
   <%= f.date_field :facial_date %><br>
   <br />
@@ -37,3 +38,5 @@
   <label>Esthetician E-mail: </label><%= f.collection_select :esthetician_id, Esthetician.all, :id, :email %><br>
 
   <%= f.submit %>
+
+  <% end %>
