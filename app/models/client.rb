@@ -14,4 +14,12 @@ class Client < ApplicationRecord
     self.first_name.capitalize + " " + self.last_name.capitalize
   end
 
+  def self.search(query)
+    if query.present?
+      where('FULL_NAME like ?', "%#{query}%")
+    else
+      self.all
+    end
+  end
+
 end

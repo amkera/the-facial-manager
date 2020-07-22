@@ -1,6 +1,13 @@
 
 <h1>All Clients:</h1>
 
+<%= form_tag clients_path, method: :get do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", full_name: nil %>
+  </p>
+<% end %>
+
 <% @clients.each do |client| %>
 	<p><%= link_to client.full_name, client_path(client)%></p>
 	<p>Number of Appointments: <%= client.facials.count %></p>
