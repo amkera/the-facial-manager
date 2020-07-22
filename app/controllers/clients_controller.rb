@@ -6,7 +6,8 @@ class ClientsController < ApplicationController
   #<ActionController::Parameters {"controller"=>"clients", "action"=>"show", "id"=>"5"} permitted: false>
 
   def index
-    @clients = Client.all
+    @clients = Client.search(params[:search])
+    #@clients = Client.all
   end
 
   def new
@@ -39,7 +40,6 @@ class ClientsController < ApplicationController
     redirect_to clients_url
   end
 
-
   private
 
   def find_client
@@ -47,7 +47,7 @@ class ClientsController < ApplicationController
   end
 
   def client_params
-    params.require(:client).permit(:first_name, :last_name, :email, :phone_number)
+    params.require(:client).permit(:first_name, :last_name, :email, :phone_number, :search)
   end
 
 end

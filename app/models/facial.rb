@@ -32,5 +32,4 @@ class Facial < ApplicationRecord
 
 
 
-
 end
