@@ -2,11 +2,26 @@ class FacialsController < ApplicationController
   before_action :find_facial, only: [:show, :edit, :update]
 
   def show
+    find_facial
   end
 
   def index
-    @facials = Facial.all
+    if params[:esthetician_id]
+      @facials = Esthetician.find(params[:esthetician_id]).facials
+    else
+      @facials = Facial.all
+    end
   end
+
+  #We added a conditional to the facials#index action to account for whether the user is
+  #trying to access the index of all facials (Facial.all) or just the index of all
+  #facials by a certain est
+
+  #The conditional hinges on whether there's an :esthetician_id key in the params hash —
+  #in other words, whether the user navigated to /estheticians/:id/facials or simply /facials
+
+  #params[:esthetician_id] is provided by Rails through the nested route. 
+  #so we don't have to worry about a collision with the :id parameter that facials#show is looking for.
 
   def new
     @facial = Facial.new

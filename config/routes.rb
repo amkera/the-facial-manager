@@ -3,8 +3,14 @@ Rails.application.routes.draw do
   devise_for :estheticians, controllers: {omniauth_callbacks: 'omniauth'}
 
   resources :clients
+  resources :estheticians, only: [:show] do
+    resources :posts, only: [:show, :index]
+  end
+
   resources :facials
-  resources :estheticians
+
+  get 'estheticians/:id/facials', to: 'estheticians#facials_index'
+  get 'estheticians/:id/facials/:facial_id', to: 'estheticians#facial'
 
   root "application#welcome"
 
