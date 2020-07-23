@@ -1,0 +1,13 @@
+<ul>
+  <li>
+    Name: <%= link_to client.full_name, client_path(client)%>
+  </li>
+  <li>
+    Number of Appointments: <%= client.facials.count %>
+  </li>
+  <li>
+    <div class="client">
+      <%= button_to "Delete Client", client, method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  </li>
+</ul>
