@@ -6,9 +6,7 @@ class ClientsController < ApplicationController
   #<ActionController::Parameters {"controller"=>"clients", "action"=>"show", "id"=>"5"} permitted: false>
 
   def index
-    @clients = Client.search(params[:search])
-    render 'index'
-    #@clients = Client.all
+    @clients = Client.all
   end
 
   def new
