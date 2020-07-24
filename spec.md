@@ -17,7 +17,7 @@ Your models must:
 
 [X] You must include and make use of a nested resource with the appropriate RESTful URLs.
 
-  [] You must include a nested new route with form that relates to the parent resource
+  [X] You must include a nested new route with form that relates to the parent resource
 
   [X] You must include a nested index or show route
 
