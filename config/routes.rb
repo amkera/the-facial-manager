@@ -4,13 +4,18 @@ Rails.application.routes.draw do
 
   resources :clients
 
+  get '/estheticians', to: 'estheticians#index'
+
   resources :estheticians, only: [:show] do
-    resources :facials, only: [:show, :index]
+    resources :facials, only: [:show, :index, :new, :edit]
   end
+
+
+  #Gives access to /estheticians/:esthetician_id/facials/new,
+  #and a new_esthetician_facial_path helper.
 
   resources :facials
 
   root "application#welcome"
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

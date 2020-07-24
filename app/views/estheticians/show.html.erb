@@ -1,3 +1,10 @@
-<h1>Esthetician Information</h1>
 
-<%=@esthetician.email%>
+
+<%=link_to "Create a New Facial Appointment with this Esthetician", new_esthetician_facial_path(@esthetician) %><br />
+
+<h3>All Booked Appointments with <%=@esthetician.email%>: </h3>
+
+
+<% @esthetician.facials.each do |facial| %>
+  <div><%= facial.facial_date %></div>
+<% end %>

@@ -75,4 +75,5 @@
 
   <h3>Esthetician Information: </h3>
       <p>Email: <%=link_to @facial.esthetician.email, esthetician_path(@facial.esthetician) if @facial.esthetician %>  </p>
-  </p>
+      <p>
+        <%= link_to "Edit Appointment", edit_esthetician_facial_path(@facial.esthetician, @facial) if @facial.esthetician %></p>

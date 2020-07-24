@@ -14,6 +14,12 @@
 <% end %>
 
 <%= form_for(@facial) do |f| %>
+
+  <label>Client Name: </label><%= f.collection_select :client_id, Client.all, :id, :full_name %><br>
+  <br />
+  <label>Esthetician E-mail: </label><%= f.collection_select :esthetician_id, Esthetician.all, :id, :email %><br>
+  <br />
+
   <label>Date:</label> <br>
   <%= f.date_field :facial_date %><br>
   <br />
@@ -21,7 +27,9 @@
   <label>Time:</label> <br>
   <%= f.time_field :facial_time %><br>
 
-  <h3>Concerns:</h3><br />
+  <%= f.hidden_field :esthetician_id %>
+
+  <h3>Concerns:</h3>
 
   <label>Acne:</label><%= f.check_box :acne %><br>
   <label>Cystic Acne:</label><%= f.check_box :cystic_acne %><br>
@@ -34,8 +42,6 @@
   <label>Wrinkles:</label><%= f.check_box :wrinkles %><br><br />
   <label>Other:</label><%= f.text_area :other %><br>
 
-  <label>Client Name: </label><%= f.collection_select :client_id, Client.all, :id, :full_name %><br>
-  <label>Esthetician E-mail: </label><%= f.collection_select :esthetician_id, Esthetician.all, :id, :email %><br>
 
   <%= f.submit %>
 

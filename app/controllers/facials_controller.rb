@@ -20,12 +20,17 @@ class FacialsController < ApplicationController
   #The conditional hinges on whether there's an :esthetician_id key in the params hash —
   #in other words, whether the user navigated to /estheticians/:id/facials or simply /facials
 
-  #params[:esthetician_id] is provided by Rails through the nested route. 
+  #params[:esthetician_id] is provided by Rails through the nested route.
   #so we don't have to worry about a collision with the :id parameter that facials#show is looking for.
 
   def new
-    @facial = Facial.new
+    if params[:esthetician_id] && !Esthetician.exists?(params[:esthetician_id])
+      redirect_to estheticians_path, alert: "Esthetician not found."
+    else
+      @facial = Facial.new(esthetician_id: params[:esthetician_id])
+    end 
   end
+
 
   def create
     @facial = Facial.new(facial_params)
@@ -37,6 +42,17 @@ class FacialsController < ApplicationController
   end
 
   def edit
+    if params[:esthetician_id]
+      esthetician = Esthetician.find_by(id: params[:esthetician_id])
+      if esthetician.nil?
+        redirect_to estheticians_path, alert: "Esthetician not found."
+      else
+        @facial = esthetician.facials.find_by(id: params[:id])
+        redirect_to esthetician_facials_path(esthetician), alert: "Facial Appointment Not Found." if @facial.nil?
+      end
+    else
+      @facial = Facial.find(params[:id])
+    end
   end
 
   def update
