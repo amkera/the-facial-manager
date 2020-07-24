@@ -17,7 +17,7 @@
 
   <label>Client Name: </label><%= f.collection_select :client_id, Client.all, :id, :full_name %><br>
   <br />
-  <label>Esthetician E-mail: </label><%= f.collection_select :esthetician_id, Esthetician.all, :id, :email %><br>
+  <label>Esthetician E-mail: </label><%= @esthetician.email%><br>
   <br />
 
   <label>Date:</label> <br>

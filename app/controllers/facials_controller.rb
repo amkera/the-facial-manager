@@ -28,7 +28,8 @@ class FacialsController < ApplicationController
       redirect_to estheticians_path, alert: "Esthetician not found."
     else
       @facial = Facial.new(esthetician_id: params[:esthetician_id])
-    end 
+      @esthetician = Esthetician.find_by(id: params[:esthetician_id])
+    end
   end
 
 
