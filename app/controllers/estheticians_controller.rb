@@ -39,17 +39,17 @@ class EstheticiansController < ApplicationController
     redirect_to estheticians_url
   end
 
-  def facials_index
-    find_esthetician
-    @facials = @esthetician.facials
-    render template: 'facials/index'
-  end
+  #def facials_index
+    #find_esthetician
+    #@facials = @esthetician.facials
+    #render template: 'facials/index'
+  #end
 
-  def facial
-    find_esthetician
-    @facial = Facial.find(params[:facial_id])
-    render template: 'facials/show'
-  end 
+  #def facial
+    #find_esthetician
+    #@facial = Facial.find(params[:facial_id])
+    #render template: 'facials/show'
+  #end 
 
   #Since a facial can logically be considered a child object to an est,
   #it can also be considered a nested resource of an est for routing purposes.
