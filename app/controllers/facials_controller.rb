@@ -15,7 +15,7 @@ class FacialsController < ApplicationController
     end
   end
 
-  #We added a conditional to the facials#index action to account for whether the user is
+  #added a conditional to the facials#index action to account for whether the user is
   #trying to access the index of all facials (Facial.all) or just the index of all
   #facials by a certain est
 
@@ -23,7 +23,7 @@ class FacialsController < ApplicationController
   #in other words, whether the user navigated to /estheticians/:id/facials or simply /facials
 
   #params[:esthetician_id] is provided by Rails through the nested route.
-  #so we don't have to worry about a collision with the :id parameter that facials#show is looking for.
+  #so don't have to worry about a collision with the :id parameter that facials#show is looking for.
 
   def new
     if params[:esthetician_id] && !Esthetician.exists?(params[:esthetician_id])
