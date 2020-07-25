@@ -1,5 +1,5 @@
 class EstheticiansController < ApplicationController
-
+  before_action :authenticate_esthetician!
   before_action :find_esthetician, only: [:show, :edit, :update]
 
   def index

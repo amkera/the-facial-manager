@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  before_action :authenticate_esthetician!
   before_action :find_client, only: [:show, :edit, :update]
 
   def show

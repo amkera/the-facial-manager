@@ -1,4 +1,5 @@
 class FacialsController < ApplicationController
+  before_action :authenticate_esthetician!
   before_action :find_facial, only: [:show, :edit, :update]
 
   def show

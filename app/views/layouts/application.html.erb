@@ -7,11 +7,51 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+      }
+
+      .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .topnav a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+    </style>
+    </head>
+    <body>
+
 
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <div class="topnav">
+      <a><%= link_to "All Appointments", facials_path, method: :get %></a>
+      <a><%= link_to "All Clients", clients_path, method: :get %></a>
+      <a><%= link_to "Log Out", destroy_esthetician_session_path, method: :delete %></a>
+    </div>
+
+
     <%= yield %>
   </body>
 </html>
