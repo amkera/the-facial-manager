@@ -61,9 +61,10 @@
 
   <p>
     <%if @facial.other != ""%>
-      <p>Other Comments: <%=@facial.other%>  </p>
+      <p>Other Comments: <%=@facial.other%>
     <%end%>
   </p>
+
 
   <h3> Client Information </h3>
 
@@ -75,5 +76,8 @@
 
   <h3>Esthetician Information: </h3>
       <p>Email: <%=link_to @facial.esthetician.email, esthetician_path(@facial.esthetician) if @facial.esthetician %>  </p>
-      <p>
-        <%= link_to "Edit Appointment", edit_esthetician_facial_path(@facial.esthetician, @facial) if @facial.esthetician %></p>
+      <div class="facial">
+        <% if @facial.esthetician == current_esthetician %>
+          <p><%= link_to "Edit Appointment", edit_esthetician_facial_path(@facial.esthetician, @facial) if @facial.esthetician %></p>
+        <%end%>
+      </div>

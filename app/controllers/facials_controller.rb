@@ -28,11 +28,10 @@ class FacialsController < ApplicationController
 
   def new
     if params[:esthetician_id] && !Esthetician.exists?(params[:esthetician_id])
-      redirect_to estheticians_path, alert: "Esthetician not found."
+      redirect_to estheticians_path, altert: "Esthetician Was Not Found!"
     else
       @facial = Facial.new(esthetician_id: params[:esthetician_id])
-      @esthetician = Esthetician.find_by(id: params[:esthetician_id])
-    end
+    end 
   end
 
 
