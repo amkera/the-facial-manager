@@ -10,4 +10,15 @@
   h1 {
     margin: 0;
   }
+
+  .facials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .facial {
+    width: 30%;
+    min-width: 300px;
+  }
 }

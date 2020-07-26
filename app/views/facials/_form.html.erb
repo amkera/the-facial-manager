@@ -1,8 +1,8 @@
 <% if @facial.errors.any? %>
-  <div id="error_explanation">
+  <div class="alert alert-danger errors">
     <h2>
       <%= pluralize(@facial.errors.count, "error") %>
-      prohibited this post from being saved:
+      occurred:
     </h2>
 
     <ul>
@@ -40,9 +40,9 @@
   <label>Flat Dark Scars:</label><%= f.check_box :flat_dark_scars %><br>
   <label>Redness:</label><%= f.check_box :redness %><br>
   <label>Wrinkles:</label><%= f.check_box :wrinkles %><br><br />
-  <label>Other:</label><%= f.text_area :other %><br>
+  <label>Other:</label><%= f.text_area :other , class: "form-control"%><br>
 
 
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-primary"%>
 
   <% end %>
