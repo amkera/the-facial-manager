@@ -17,7 +17,7 @@
     <% if esthetician_signed_in? %>
       <div class="topnav">
         <%= link_to 'All Facial Appointments', facials_path %>
-        <%= link_to 'Profile', edit_esthetician_registration_path %>
+        <%= link_to 'Your Profile', edit_esthetician_registration_path %>
         <%= link_to 'Log out', destroy_esthetician_session_path, method: :delete %>
       </div>
     <% else %>
