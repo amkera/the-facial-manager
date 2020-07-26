@@ -1,11 +1,42 @@
 Requirements
-Use the Ruby on Rails framework.
+[X] Use the Ruby on Rails framework.
 
 Your models must:
 
 [X] Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
+    Estheticians
+      -have many facials
+      -have many clients through facials
+
+    Clients
+      -Have many facials
+      -Have many estheticians through facials
+
+    Facials
+      -belong to clients
+      -belong to estheticians
 
 [X] Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
+
+  Estheticians have many clients through facials
+  Clients have many estheticians through facials
+
+  User submits
+
+  "facial_date"
+  "facial_time"
+  "acne"
+  "cystic_acne"
+  "deep_pitted_scars"
+  "dryness"
+  "dullness"
+  "flakiness"
+  "flat_dark_scars"
+  "redness"
+  "wrinkles"
+  "other"
+
+
 
 [X] Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
 

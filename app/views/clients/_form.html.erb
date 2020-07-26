@@ -13,16 +13,26 @@
   </div>
 <% end %>
 
+
 <%= form_for(@client) do |f| %>
-  <label>First Name: </label> <%= f.text_field :first_name %><br>
+  <div class="form-group">
+    <label>First Name: </label> <%= f.text_field :first_name %><br>
+  </div>
 
-  <label>Last Name: </label> <%= f.text_field :last_name %><br>
+  <div class="form-group">
+    <label>Last Name: </label> <%= f.text_field :last_name %><br>
+  </div>
 
-  <label>E-mail: </label> <%= f.text_field :email %><br>
+  <div class="form-group">
+    <label>E-mail: </label> <%= f.text_field :email %><br>
+  </div>
 
-  <label>Phone Number (digits only): </label>
-  <%= f.text_field :phone_number %><br>
+  <div class="form-group">
+    <label>Phone Number (10 digits only): </label>
+    <%= f.text_field :phone_number %><br>
+  </div>
 
-  <%= f.submit %>
+
+  <%= f.submit class: "btn btn-primary" %>
 
 <% end %>
