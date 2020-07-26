@@ -7,26 +7,14 @@ class FacialsController < ApplicationController
     find_facial
   end
 
+
   def index
     if params[:esthetician_id]
-      @facials = Esthetician.find_by(id: params[:esthetician_id])
-      if @esthetician.nil?
-         redirect_to estheticians_path, alert: "Esthetician Profile Not Found."
-       else
-         @facials = @esthetician.facials
-       end
-     else
-       @facials = Facial.all
+      @facials = Esthetician.find(params[:esthetician_id]).facials
+    else
+      @facials = Facial.all
     end
   end
-
-  #def index
-    #if params[:esthetician_id]
-      #@facials = Esthetician.find(params[:esthetician_id]).facials
-    #else
-      #@facials = Facial.all
-    #end
-  #end
 
   #added a conditional to the facials#index action to account for whether the user is
   #trying to access the index of all facials (Facial.all) or just the index of all
