@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   resources :clients
 
-  get '/estheticians', to: 'estheticians#index'
-
   resources :estheticians, only: [:show] do
     resources :facials, only: [:show, :index, :new, :edit]
   end
