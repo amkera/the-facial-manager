@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/most_popular', to: 'estheticians#most_popular'
+  get '/estheticians/most_popular', to: 'estheticians#most_popular'
 
   devise_for :estheticians, controllers: {omniauth_callbacks: 'omniauth'}
 
