@@ -11,7 +11,7 @@ class EstheticiansController < ApplicationController
   end
 
   def most_popular
-    @esthetician = Esthetician.most_popular
+    @estheticians = Esthetician.most_popular
   end
 
   def new

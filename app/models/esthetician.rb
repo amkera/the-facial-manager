@@ -21,9 +21,11 @@ class Esthetician < ApplicationRecord
   end
 
   def self.most_popular
-    self.facials.where("esthetician_id: id").order('COUNT(*) DESC').limit(1)
-    ##Facial.find_by(:esthetician_id == Esthetician.most_frequent.id) (edited) 
+    #self.facials.find_by(esthetician: true)
+    self.order("facial_count DESC").limit(1)
+
   end
 
+  ##self.facials.where("esthetician_id: id").order('COUNT(*) DESC').limit(1)
 
 end
