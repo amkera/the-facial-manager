@@ -22,7 +22,6 @@ class Esthetician < ApplicationRecord
 
   def self.most_popular
     self.facials.where("esthetician_id: id").order('COUNT(*) DESC').limit(1)
-
   end
 
 

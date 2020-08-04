@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/most_popular', to: 'esthetcians#most_popular'
+
   devise_for :estheticians, controllers: {omniauth_callbacks: 'omniauth'}
 
   resources :clients
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
 
   root "application#welcome"
 
-  get '/most_popular', to: 'esthetcians#most_popular'
+
 
 
 end
