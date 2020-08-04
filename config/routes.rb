@@ -15,5 +15,7 @@ Rails.application.routes.draw do
 
   root "application#welcome"
 
+  get '/most_popular', to: 'esthetcians#most_popular'
+
 
 end

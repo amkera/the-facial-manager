@@ -1,6 +1,7 @@
 class Esthetician < ApplicationRecord
   has_many :facials
   has_many :clients, through: :facials
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -18,5 +19,11 @@ class Esthetician < ApplicationRecord
   def facial_count
     self.facials.count
   end
+
+  def self.most_popular
+    self.facials.where("esthetician_id: id").order('COUNT(*) DESC').limit(1)
+
+  end
+
 
 end

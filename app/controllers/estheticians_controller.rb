@@ -10,6 +10,12 @@ class EstheticiansController < ApplicationController
   def show
   end
 
+
+  def most_popular
+    @esthetician = Esthetician.most_popular
+  end
+
+
   def new
     @esthetician = Esthetician.new
   end
