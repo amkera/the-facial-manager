@@ -8,6 +8,7 @@ class FacialsController < ApplicationController
   end
 
 
+
   def index
     if params[:esthetician_id]
       @facials = Esthetician.find(params[:esthetician_id]).facials
